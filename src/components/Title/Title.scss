@@ -1,0 +1,36 @@
+@import '../../helpers/mixins';
+@import '../../helpers/vars';
+
+.Title {
+  @include onPhone {
+    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  &__content {
+    color: $black;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 110%;
+    text-align: center;
+    text-transform: uppercase;
+
+    @include onPhone {
+      font-size: 34px;
+    }
+
+    @include onTablet-portret {
+      font-size: 58px;
+    }
+
+    @include onTablet-landscape {
+      font-size: 58px;
+    }
+
+    @include onDesktop {
+      font-size: 82px;
+    }
+  }
+}

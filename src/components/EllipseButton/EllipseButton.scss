@@ -1,0 +1,49 @@
+@import '../../helpers/mixins';
+
+@keyframes move {
+  from {
+    transform: rotate(0);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.Ellipse {
+  position: absolute;
+  display: flex;
+  cursor: pointer;
+
+  &:hover {
+    animation: move 3s linear infinite reverse;
+  }
+
+  @include onPhone {
+    height: 87px;
+    width: 87px;
+    top: 60%;
+    left: 60%;
+  }
+
+  @include onTablet-portret {
+    height: 109px;
+    width: 109px;
+    top: 60%;
+    left: 65%;
+  }
+
+  @include onTablet-landscape {
+    height: 109px;
+    width: 109px;
+    top: 70%;
+    left: 65%;
+  }
+
+  @include onDesktop {
+    height: 115px;
+    width: 115px;
+    top: 70%;
+    left: 58%;
+  }
+}

@@ -1,3 +1,110 @@
-.starter {
-  font-size: 18px;
+@import './helpers/vars';
+@import './helpers/mixins';
+
+@font-face {
+  font-family: 'Grtsk Giga';
+  src: url('./fonts/GrtskGiga-Medium.ttf');
+}
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.App {
+  height: 100vh;
+  font-family: 'Grtsk Giga', sans-serif;
+
+  @include onPhone {
+    background-image: radial-gradient(circle closest-side, $yellow 75%, $gray 95%);
+  }
+
+  @include onTablet-portret {
+    background-image: radial-gradient(circle closest-side, $yellow 50%, $gray 70%);
+  }
+
+  @include onTablet-landscape {
+    background-image: radial-gradient(circle closest-side, $yellow 50%, $gray 70%);
+  }
+
+  @include onDesktop {
+    background-image: radial-gradient(circle closest-side, $yellow 60%, $gray 70%);
+  }
+
+  &__container {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+
+    @include onDesktop {
+      padding: 24px;
+    }
+  }
+
+  &__link {
+    position: relative;
+    text-decoration: none;
+    text-align: center;
+    color: $black;
+    line-height: 140%;
+
+    &:hover {
+      color: #fff;
+    }
+
+    &:hover::before {
+      -webkit-transform: scaleX(1);
+      -ms-transform: scaleX(1);
+      transform: scaleX(1);
+      -webkit-transform-origin: left;
+      -ms-transform-origin: left;
+      transform-origin: left;
+      -webkit-transition: -webkit-transform 0.25s;
+      transition: -webkit-transform 0.25s;
+      -o-transition: transform 0.25s;
+      transition: transform 0.25s;
+      transition: transform 0.25s, -webkit-transform 0.25s;
+    }
+
+    &::before {
+      content: '';
+      width: 100%;
+      height: 1px;
+      background-color: #fff;
+      position: absolute;
+      left: 0; bottom: -5px;
+      -webkit-transform: scaleX(0);
+      -ms-transform: scaleX(0);
+      transform: scaleX(0);
+      -webkit-transform-origin: right;
+      -ms-transform-origin: right;
+      transform-origin: right;
+      -webkit-transition: -webkit-transform 0.25s;
+      transition: -webkit-transform 0.25s;
+      -o-transition: transform 0.25s;
+      transition: transform 0.25s;
+      transition: transform 0.25s, -webkit-transform 0.25s;
+    }
+
+    @include onPhone {
+      display: none;
+    }
+
+    @include onTablet-portret {
+      font-size: 14px;
+    }
+
+    @include onTablet-landscape {
+      font-size: 14px;
+    }
+
+    @include onDesktop {
+      font-size: 16px;
+      font-weight: 600;
+    }
+  }
 }

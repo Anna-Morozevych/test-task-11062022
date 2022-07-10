@@ -1,0 +1,12 @@
+@import '../../helpers/mixins';
+
+.What {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: rotate(90deg);
+
+  @include onPhone {
+    display: none;
+  }
+}

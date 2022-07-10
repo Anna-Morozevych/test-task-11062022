@@ -1,0 +1,9 @@
+@import '../../helpers/mixins';
+
+.Who {
+  display: block;
+
+  @include onPhone {
+    display: none;
+  }
+}

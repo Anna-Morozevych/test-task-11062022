@@ -1,0 +1,22 @@
+@import '../../helpers/vars';
+
+.Routes {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  gap: 20px;
+
+  &__link {
+    text-decoration: none;
+    text-align: center;
+    color: $black;
+    line-height: 140%;
+    transition: color 0.3s;
+
+    &:hover {
+      color: #fff;
+    }
+  }
+}

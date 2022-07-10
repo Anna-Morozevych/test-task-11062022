@@ -1,0 +1,85 @@
+@import '../../helpers/vars';
+@import '../../helpers/mixins';
+
+@keyframes move-text {
+  from {
+    transform: translateX(0%);
+  }
+
+  to {
+    transform: translateX(-40%);
+  }
+}
+
+.Marquee {
+  position: absolute;
+  width: 100%;
+  overflow: hidden;
+
+  &--forward {
+    top: 50%;
+
+    @include onPhone {
+      transform: rotate(-57deg);
+      width: 130%;
+      overflow: hidden;
+    }
+
+    @include onTablet-portret {
+      transform: rotate(-53deg);
+      width: 100%;
+      overflow: hidden;
+    }
+
+    @include onTablet-landscape {
+      transform: rotate(-36deg);
+      width: 100%;
+    }
+
+    @include onDesktop {
+      transform: rotate(-30deg);
+    }
+  }
+
+  &--reverse {
+    top: 40%;
+
+    @include onPhone {
+      transform: rotate(123deg);
+    }
+
+    @include onTablet-portret {
+      transform: rotate(126deg);
+    }
+
+    @include onTablet-landscape {
+      transform: rotate(143deg);
+    }
+
+    @include onDesktop {
+      transform: rotate(150deg);
+    }
+  }
+
+  &__content {
+    font-style: italic;
+    font-weight: 700;
+    font-size: 52px;
+    line-height: 110%;
+    text-align: center;
+    text-transform: uppercase;
+    opacity: 0.1;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 1px $black;
+    white-space: nowrap;
+
+    &--forward {
+      transform: rotate(90deg);
+      animation: move-text 5s linear infinite reverse;
+    }
+
+    &--reverse {
+      animation: move-text 5s linear infinite reverse;
+    }
+  }
+}
